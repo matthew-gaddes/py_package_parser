@@ -22,7 +22,7 @@ root_function = "LiCSAlert_monitoring_mode"
 func_tree = build_function_call_tree(directory, root_function)
 
 
-func_tree
+print(func_tree)
 
 
 #%%

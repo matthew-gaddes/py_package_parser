@@ -66,13 +66,36 @@ class TreeNode:
     def add_child(self, child_node):
         self.children.append(child_node)
 
-    def __repr__(self, level=0):
+    def __repr__(self, level=0, final_child = False):
         """ Returns a py_function.name attribute to be readable.  
         """
-        # each level of function is indented by one tab (\t)
-        ret = "\t" * level + repr(self.value.name) + "\n"
-        for child in self.children:
-            ret += child.__repr__(level + 1)
+        
+        #u2502 is vertical, 
+        # u2014 is horizontal
+        # u2514 is end of vertical with horizontal tick
+        # u251c is vertical with tick in middle
+        
+        
+        
+        if level == 0:
+            # just return the function
+            ret = (self.value.name) + "\n"
+        else:
+            indent = "\u2502   "  * (level-1) 
+            if not final_child:
+                # vertical line with horizontal going to function
+                ret = indent + "\u251C" + ("\u2014" *3) + self.value.name + "\n"
+            else:
+                # end of vertical line with horizontal going to function
+                ret = indent + "\u2514" + ("\u2014" *3) + self.value.name + "\n"
+                
+        #ret = "\t" * level + repr(self.value.name) + "\n"
+        for child_n, child in enumerate(self.children):
+            # determien if this is the final child of these children
+            if child_n == (len(self.children) - 1):
+                final_child = True
+            # note level is increased by one for every child level.  
+            ret += child.__repr__(level + 1, final_child)
         return ret  
     
     def find_function_n(function_name, py_functions):
