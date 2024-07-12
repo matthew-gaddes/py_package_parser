@@ -6,16 +6,14 @@ Created on Thu Jul 11 10:37:28 2024
 @author: matthew
 """
 
-print("started")
-
 import os
-import ast
-import matplotlib.pyplot as plt
-import sys
 
 import pdb
 
-from pathlib import Path
+#from pathlib import Path
+
+
+#%%
 
 def read_py_file_lines(file_path):
     with open(file_path, 'r') as file:
@@ -93,6 +91,8 @@ def find_all_functions(directory, verbose = True):
     """ Find all the functions in a python directory (including child 
     directories)
     """
+    
+    from pathlib import Path
 
     # Find all the functions in a directory of python files.  
     py_functions = []
@@ -232,10 +232,5 @@ def build_function_call_tree(directory, root_function):
         
     return func_tree
 
-
-#%%    
-
-
-#%%
 
 
