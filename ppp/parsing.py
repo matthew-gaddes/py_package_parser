@@ -66,7 +66,7 @@ class TreeNode:
     def add_child(self, child_node):
         self.children.append(child_node)
 
-    def __repr__(self, level=0, final_child = False):
+    def __repr__(self, level=0, final_child = False, indent_parent = ''):
         """ Returns a py_function.name attribute to be readable.  
         """
         
@@ -74,28 +74,46 @@ class TreeNode:
         # u2014 is horizontal
         # u2514 is end of vertical with horizontal tick
         # u251c is vertical with tick in middle
-        
-        
+       
         
         if level == 0:
-            # just return the function
-            ret = (self.value.name) + "\n"
+            # initiliase
+            name_start = ''
         else:
-            indent = "\u2502   "  * (level-1) 
+            #indent = indent_parent + "\u2502   "  
             if not final_child:
                 # vertical line with horizontal going to function
-                ret = indent + "\u251C" + ("\u2014" *3) + self.value.name + "\n"
+                name_start = indent_parent + "\u251C" + ("\u2014" *3)
             else:
                 # end of vertical line with horizontal going to function
-                ret = indent + "\u2514" + ("\u2014" *3) + self.value.name + "\n"
+                name_start = indent_parent + "\u2514" + ("\u2014" *3)
                 
-        #ret = "\t" * level + repr(self.value.name) + "\n"
+        # add the function to the start of the name
+        ret = name_start + self.value.name + "\n"
+                
+        # if there are no children, this is skipped
+        n_children = len(self.children)
         for child_n, child in enumerate(self.children):
             # determien if this is the final child of these children
             if child_n == (len(self.children) - 1):
                 final_child = True
-            # note level is increased by one for every child level.  
-            ret += child.__repr__(level + 1, final_child)
+            else:
+                final_child = False
+            # first level doesn't have a line, all others need line updating.  
+            if level >= 1:
+                # 251c is vertical with tick in middle
+                if name_start[-4] == "\u251c":
+                    new_indent = indent_parent + "\u2502   "
+                # 2514 is end of vertical with tick in middle
+                elif name_start[-4] == "\u2514":
+                    new_indent = indent_parent + "    "
+            else:
+                new_indent = indent_parent + "    "
+            # call on child, recursively.  
+            ret += child.__repr__(level + 1, final_child, new_indent)
+            
+            
+                
         return ret  
     
     def find_function_n(function_name, py_functions):

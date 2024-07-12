@@ -1,0 +1,187 @@
+LiCSAlert_monitoring_mode
+    ├———read_config_file
+    ├———LiCSBAS_json_to_LiCSAlert
+    │   ├———baseline_from_names
+    │   └———square_crop_r3_data_in_space
+    ├———check_required_args
+    ├———check_required_args
+    ├———check_required_args
+    ├———LiCSBAS_to_LiCSAlert
+    │   ├———baseline_from_names
+    │   ├———col_to_ma
+    │   ├———add_square_plot
+    │   └———crop_ts_data_in_time
+    ├———LiCSAlert_preprocessing
+    │   ├———downsample_ifgs
+    │   │   └———col_to_ma
+    │   ├———col_to_ma
+    │   └———downsample_ifgs
+    │       └———col_to_ma
+    ├———find_nearest_date
+    ├———run_LiCSAlert_status
+    │   ├———compare_two_dates
+    │   └———compare_two_dates
+    ├———load_or_create_ICASAR_results
+    │   └———ICASAR
+    │       ├———create_all_ifgs
+    │       │   ├———acquisitions_from_ifg_dates
+    │       │   └———acquisitions_from_ifg_dates
+    │       ├———create_cumulative_ifgs
+    │       ├———PCA_meg2
+    │       ├———maps_tcs_rescale
+    │       ├———maps_tcs_rescale
+    │       ├———plot_pca_variance_line
+    │       ├———bss_components_inversion
+    │       ├———two_spatial_signals_plot
+    │       │   ├———plot_spatial_signals
+    │       │   │   ├———remappedColorMap
+    │       │   │   └———remappedColorMap
+    │       │   └———dem_and_temporal_source_figure
+    │       │       ├———update_mask_sources_ifgs
+    │       │       │   └———col_to_ma
+    │       │       ├———signals_to_master_signal_comparison
+    │       │       ├———signals_to_master_signal_comparison
+    │       │       └———plot_source_tc_correlations
+    │       │           ├———remappedColorMap
+    │       │           ├———remappedColorMap
+    │       │           ├———truncate_colormap
+    │       │           └———col_to_ma
+    │       ├———two_spatial_signals_plot
+    │       │   ├———plot_spatial_signals
+    │       │   │   ├———remappedColorMap
+    │       │   │   └———remappedColorMap
+    │       │   └———dem_and_temporal_source_figure
+    │       │       ├———update_mask_sources_ifgs
+    │       │       │   └———col_to_ma
+    │       │       ├———signals_to_master_signal_comparison
+    │       │       ├———signals_to_master_signal_comparison
+    │       │       └———plot_source_tc_correlations
+    │       │           ├———remappedColorMap
+    │       │           ├———remappedColorMap
+    │       │           ├———truncate_colormap
+    │       │           └———col_to_ma
+    │       ├———plot_temporal_signals
+    │       ├———perform_multiple_ICA_runs
+    │       │   ├———bootstrap_ICA
+    │       │   │   ├———PCA_meg2
+    │       │   │   ├———fastica_MEG
+    │       │   │   │   └———PCA_meg2
+    │       │   │   └———maps_tcs_rescale
+    │       │   └———bootstrap_ICA
+    │       │       ├———PCA_meg2
+    │       │       ├———fastica_MEG
+    │       │       │   └———PCA_meg2
+    │       │       └———maps_tcs_rescale
+    │       ├———sources_list_to_r2_r3
+    │       │   ├———col_to_ma
+    │       │   └———col_to_ma
+    │       ├———bootstrapped_sources_to_centrotypes
+    │       │   ├———pairwise_comparison
+    │       │   └———cluster_quality_index
+    │       ├———prepare_point_colours_for_2d
+    │       ├———prepare_legends_for_2d
+    │       ├———plot_2d_interactive_fig
+    │       ├———plot_2d_interactive_fig
+    │       ├———plot_2d_interactive_fig
+    │       ├———bss_components_inversion
+    │       ├———two_spatial_signals_plot
+    │       │   ├———plot_spatial_signals
+    │       │   │   ├———remappedColorMap
+    │       │   │   └———remappedColorMap
+    │       │   └———dem_and_temporal_source_figure
+    │       │       ├———update_mask_sources_ifgs
+    │       │       │   └———col_to_ma
+    │       │       ├———signals_to_master_signal_comparison
+    │       │       ├———signals_to_master_signal_comparison
+    │       │       └———plot_source_tc_correlations
+    │       │           ├———remappedColorMap
+    │       │           ├———remappedColorMap
+    │       │           ├———truncate_colormap
+    │       │           └———col_to_ma
+    │       ├———bss_components_inversion
+    │       ├———two_spatial_signals_plot
+    │       │   ├———plot_spatial_signals
+    │       │   │   ├———remappedColorMap
+    │       │   │   └———remappedColorMap
+    │       │   └———dem_and_temporal_source_figure
+    │       │       ├———update_mask_sources_ifgs
+    │       │       │   └———col_to_ma
+    │       │       ├———signals_to_master_signal_comparison
+    │       │       ├———signals_to_master_signal_comparison
+    │       │       └———plot_source_tc_correlations
+    │       │           ├———remappedColorMap
+    │       │           ├———remappedColorMap
+    │       │           ├———truncate_colormap
+    │       │           └———col_to_ma
+    │       ├———bss_components_inversion
+    │       ├———plot_temporal_signals
+    │       ├———r2_to_r3
+    │       │   ├———col_to_ma
+    │       │   └———col_to_ma
+    │       ├———r2_to_r3
+    │       │   ├———col_to_ma
+    │       │   └———col_to_ma
+    │       └———r2_arrays_to_googleEarth
+    │           └———r2_array_to_png
+    ├———update_mask_sources_ifgs
+    │   └———col_to_ma
+    ├———downsample_ifgs
+    │   └———col_to_ma
+    ├———LiCSAlert_mask_figure
+    ├———LiCSAlert
+    │   ├———bss_components_inversion
+    │   ├———tcs_baseline
+    │   ├———residual_for_pixels
+    │   │   └———r2_to_r3
+    │   │       ├———col_to_ma
+    │   │       └———col_to_ma
+    │   ├———tcs_baseline
+    │   ├———bss_components_inversion
+    │   ├———tcs_monitoring
+    │   ├———residual_for_pixels
+    │   │   └———r2_to_r3
+    │   │       ├———col_to_ma
+    │   │       └———col_to_ma
+    │   └———tcs_monitoring
+    ├———LiCSAlert
+    │   ├———bss_components_inversion
+    │   ├———tcs_baseline
+    │   ├———residual_for_pixels
+    │   │   └———r2_to_r3
+    │   │       ├———col_to_ma
+    │   │       └———col_to_ma
+    │   ├———tcs_baseline
+    │   ├———bss_components_inversion
+    │   ├———tcs_monitoring
+    │   ├———residual_for_pixels
+    │   │   └———r2_to_r3
+    │   │       ├———col_to_ma
+    │   │       └———col_to_ma
+    │   └———tcs_monitoring
+    ├———LiCSAlert_figure
+    │   ├———col_to_ma
+    │   ├———remappedColorMap
+    │   ├———make_colormap
+    │   ├———col_to_ma
+    │   ├———col_to_ma
+    │   ├———centre_to_box
+    │   ├———add_square_plot
+    │   └———truncate_colormap
+    ├———LiCSAlert_epoch_figures
+    │   ├———plot_1_image
+    │   │   └———col_to_ma
+    │   ├———plot_1_image
+    │   │   └———col_to_ma
+    │   ├———plot_1_image
+    │   │   └———col_to_ma
+    │   └———plot_1_image
+    │       └———col_to_ma
+    ├———save_epoch_data
+    ├———write_volcano_status
+    ├———LiCSAlert_aux_figures
+    │   ├———plot_1_image
+    │   │   └———col_to_ma
+    │   └———plot_1_image
+    │       └———col_to_ma
+    └———save_licsalert_aux_data
+
